@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bebas Neue", cursive;
+  
+  --color-navy: #0a1f5c;
+  --color-gold: #f5a623;
+  --color-gold-hover: #d48e1c;
+}
+
+@layer base {
+  body {
+    @apply bg-navy text-white font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-wide uppercase;
+  }
+}
+
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
