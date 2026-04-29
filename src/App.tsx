@@ -328,6 +328,72 @@ export default function App() {
         </div>
       </section>
 
+      {/* Process Section */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeIn} className="text-center mb-20">
+            <span className="bg-gold/10 text-gold px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase mb-4 inline-block">
+              Our Process
+            </span>
+            <h2 className="text-4xl md:text-6xl font-bold mt-4">4 Easy Steps To Move</h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
+            {/* Connection Line (Desktop) */}
+            <div className="hidden lg:block absolute top-[40%] left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-gold/20 to-transparent -z-10"></div>
+
+            {[
+              { 
+                num: "01", 
+                title: "Plan", 
+                desc: "Get a free quote and schedule your move date with our expert consultants.",
+                icon: <Calendar className="text-navy" size={24} />
+              },
+              { 
+                num: "02", 
+                title: "Pack", 
+                desc: "Secure your items with our professional packing services or follow our expert DIY tips.",
+                icon: <Package className="text-navy" size={24} />
+              },
+              { 
+                num: "03", 
+                title: "Load", 
+                desc: "Our trained crew handles the heavy lifting, loading everything safely and efficiently.",
+                icon: <Truck className="text-navy" size={24} />
+              },
+              { 
+                num: "04", 
+                title: "Move", 
+                desc: "We transport and unload your belongings at your new home, ensuring a stress-free delivery.",
+                icon: <MapPin className="text-navy" size={24} />
+              }
+            ].map((step, index) => (
+              <motion.div 
+                key={index}
+                variants={zoomIn}
+                initial="initial"
+                whileInView="whileInView"
+                className="relative group"
+              >
+                <div className={`p-8 rounded-3xl transition-all duration-500 border ${index === 0 ? 'bg-gold text-navy border-gold shadow-[0_20px_50px_rgba(245,166,35,0.2)]' : 'bg-white/[0.03] border-white/10 hover:border-gold/30'}`}>
+                  <div className={`w-14 h-14 rounded-2xl mb-8 flex items-center justify-center transform group-hover:rotate-12 transition-transform ${index === 0 ? 'bg-white' : 'bg-gold'}`}>
+                    {step.icon}
+                  </div>
+                  <h3 className={`text-4xl font-bold mb-4 font-display italic opacity-50`}>{step.num}.</h3>
+                  <h4 className="text-2xl font-bold mb-4">{step.title}</h4>
+                  <p className={`font-light leading-relaxed ${index === 0 ? 'text-navy/80' : 'text-gray-400'}`}>
+                    {step.desc}
+                  </p>
+                  <div className={`mt-8 flex items-center gap-2 text-sm font-bold uppercase tracking-widest ${index === 0 ? 'text-navy' : 'text-gold'}`}>
+                    Read More <ChevronRight size={16} />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Section */}
       <section id="pricing" className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
